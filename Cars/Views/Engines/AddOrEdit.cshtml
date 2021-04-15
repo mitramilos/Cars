@@ -1,0 +1,40 @@
+﻿@model Cars.Models.Engine
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Engine</h4>
+<hr />
+<center>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id_engine" />
+            <div class="form-group">
+                <label asp-for="Version" class="control-label"></label>
+                <input asp-for="Version" class="form-control" />
+                <span asp-validation-for="Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EDescription" class="control-label"></label>
+                <input asp-for="EDescription" class="form-control" />
+                <span asp-validation-for="EDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-light" />
+            </div>
+        </form>
+    </div>
+</div>
+</center>
+<div>
+    <a asp-action="Index"  type="button" class="btn btn-info">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

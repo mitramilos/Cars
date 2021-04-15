@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Cars.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>All cars</h2>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Power)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit"  type="button" class="btn btn-success">Create New</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Power)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                 |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure to delete this car?')">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
